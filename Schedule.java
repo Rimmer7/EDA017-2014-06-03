@@ -17,6 +17,10 @@ public class Schedule() {
 	}
 	
 	private static sortTimes(){
+		if(times.size() < 2) {
+			return;
+		}
+		
 		do {
 			boolean sorted = true;
 			for (int i = 1; i < times.size(); i++) {
@@ -29,4 +33,25 @@ public class Schedule() {
 		} while(!sorted)
 	}
 	
+	public String getName() {
+		return name;
+	}
+	
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append(name + ":");
+		for(int time : times) {
+			sb.append(" " + time);
+		}
+		return sb.toString();
+	}
+	
+	public boolean containsAll(Schedule other) {
+		for(int time : times) {
+			if(!other.toString().contains(time)) {
+				return false;
+			}
+		}
+		return true;
+	}
 }
