@@ -21,7 +21,8 @@ public class Schedule() {
 			boolean sorted = true;
 			for (int i = 1; i < times.size(); i++) {
 				if(times.get(i) < times.get(i - 1) {
-					times.add(i - 1, times.get(i));
+					int swap = times.set(i - 1, times.get(i));
+					times.set(i, swap);
 					sorted = false;
 				}
 			}
