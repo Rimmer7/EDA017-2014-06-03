@@ -16,7 +16,7 @@ public class Schedule() {
 		sortTimes();
 	}
 	
-	private static sortTimes(){
+	private void sortTimes(){
 		// Failsafe for index.
 		if(times.size() < 2) {
 			return;
