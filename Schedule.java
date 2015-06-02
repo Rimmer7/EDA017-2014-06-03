@@ -9,11 +9,13 @@ public class Schedule {
 	lektionstider från den Scanner som ges som parameter. I inläsningen
 	anges lektionstiderna som en följd av heltal, avslutad av talet 0. */
 	public Schedule(String name, Scanner scan) {
+		this.name = name;
 		times = new ArrayList<Integer>();
 		
 		int time = scan.nextInt();
 		while(time != 0) {
 			times.add(time);
+			time = scan.nextInt();
 		}
 		sortTimes();
 	}
