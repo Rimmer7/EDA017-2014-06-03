@@ -1,11 +1,13 @@
-public class Course() {
+import java.util.ArrayList;
+
+public class Course {
 	private ArrayList<Schedule> labGroups;
 	private ArrayList<Schedule> tutors;
 	
 	/** Skapar ett Course-objekt utan några labbgrupps- eller handledartider. */
 	public Course() {
 		labGroups = new ArrayList<Schedule>();
-		tutors = new ArrayList<Schedule();
+		tutors = new ArrayList<Schedule>();
 	}
 	
 	/** Lägger till en labbgrupps tider. */
@@ -22,9 +24,9 @@ public class Course() {
 	handledare som har möjlighet att handleda gruppen ut. */
 	public void printCandidates() {
 		StringBuilder sb = new StringBuilder();
-		for(group : labGroups) {
+		for(Schedule group : labGroups) {
 			sb.append(group);
-			for(tutor : tutors) {
+			for(Schedule tutor : tutors) {
 				if(group.containsAll(tutor)) {
 					sb.append("\n  " + tutor.getName());
 				}
