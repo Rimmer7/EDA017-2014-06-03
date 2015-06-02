@@ -17,10 +17,12 @@ public class Schedule() {
 	}
 	
 	private static sortTimes(){
+		// Failsafe for index.
 		if(times.size() < 2) {
 			return;
 		}
 		
+		// Bubblesort.
 		do {
 			boolean sorted = true;
 			for (int i = 1; i < times.size(); i++) {
@@ -37,6 +39,7 @@ public class Schedule() {
 		return name;
 	}
 	
+	/** Returnerar namn följt av tider i stigande ordning. Ex: "LabbA: 213 310 414" */
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
 		sb.append(name + ":");
@@ -46,6 +49,7 @@ public class Schedule() {
 		return sb.toString();
 	}
 	
+	/** Kollar om nuvarande schema innehåller alla tider som finns i schemat 'other' */
 	public boolean containsAll(Schedule other) {
 		for(int time : times) {
 			if(!other.toString().contains(time)) {
