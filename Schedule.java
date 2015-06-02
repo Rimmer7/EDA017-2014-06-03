@@ -1,12 +1,14 @@
-public class Schedule() {
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Schedule {
 	private String name;
 	private ArrayList<Integer> times;
-
+	
 	/** Skapar en ny lektionslista med givet namn och läser in ett antal
 	lektionstider från den Scanner som ges som parameter. I inläsningen
 	anges lektionstiderna som en följd av heltal, avslutad av talet 0. */
 	public Schedule(String name, Scanner scan) {
-		this.name = name;
 		times = new ArrayList<Integer>();
 		
 		int time = scan.nextInt();
@@ -23,16 +25,17 @@ public class Schedule() {
 		}
 		
 		// Bubblesort.
+		boolean sorted = true;
 		do {
-			boolean sorted = true;
+			sorted = true;
 			for (int i = 1; i < times.size(); i++) {
-				if(times.get(i) < times.get(i - 1) {
+				if(times.get(i) < times.get(i - 1)) {
 					int swap = times.set(i - 1, times.get(i));
 					times.set(i, swap);
 					sorted = false;
 				}
 			}
-		} while(!sorted)
+		} while(!sorted);
 	}
 	
 	public String getName() {
@@ -52,7 +55,7 @@ public class Schedule() {
 	/** Kollar om nuvarande schema innehåller alla tider som finns i schemat 'other' */
 	public boolean containsAll(Schedule other) {
 		for(int time : times) {
-			if(!other.toString().contains(time)) {
+			if(!other.toString().contains(Integer.toString(time))) {
 				return false;
 			}
 		}
