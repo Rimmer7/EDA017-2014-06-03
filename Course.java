@@ -21,7 +21,7 @@ public class Course() {
 			sb.append(group);
 			for(tutor : tutors) {
 				if(group.containsAll(tutor)) {
-					sb.append("\n" + tutor.getName());
+					sb.append("\n  " + tutor.getName());
 				}
 			}
 		}
