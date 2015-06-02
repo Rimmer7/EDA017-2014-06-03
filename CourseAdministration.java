@@ -1,6 +1,5 @@
 import java.util.Scanner;
 
-
 public class CourseAdministration {
 	private Scanner scan;
 	private Course course;
