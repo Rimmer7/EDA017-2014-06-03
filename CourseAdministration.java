@@ -1,4 +1,7 @@
-public class CourseAdministration() {
+import java.util.Scanner;
+
+
+public class CourseAdministration {
 	private Scanner scan;
 	private Course course;
 	
@@ -14,11 +17,17 @@ public class CourseAdministration() {
 		System.out.println("4. Avsluta");
 	}
 	
-	private void addTutor(Schedule s) {
+	private void addTutor() {
+		System.out.print("Ny assistent: ");
+		String name = scan.next();
+		Schedule s = new Schedule(name, scan);
 		course.addTutor(s);
 	}
 	
-	private void addLab(Schedule s) {
+	private void addLab() {
+		System.out.print("Ny labb: ");
+		String name = scan.next();
+		Schedule s = new Schedule(name, scan);
 		course.addLab(s);
 	}
 	
@@ -33,26 +42,25 @@ public class CourseAdministration() {
 	private void runApplication() {
 		do {
 			printMenu();
-			System.out.print("val: ")
+			System.out.print("val: ");
 			int option = scan.nextInt();
 			
 			switch(option) {
-				case 1:	System.out.print("Ny assistent: ");
-					String name = scan.next();
-					Schedule s = new Schedule(name, scan);
-					addTutor(s);
+				case 1:
+					addTutor();
 					break;
-				case 2:	System.out.print("Ny labb: ");
-					String name = scan.next();
-					Schedule s = new Schedule(name, scan);
-					addLab(s);
+				case 2:
+					addLab();
 					break;
-				case 3:	printCandidates();
+				case 3:
+					printCandidates();
 					break;
-				case 4:	exit();
-				default: break;
+				case 4:
+					exit();
+				default:
+					break;
 			}
-		} while (true)
+		} while (true);
 	}
 	
 	public static void main(String args[]) {
